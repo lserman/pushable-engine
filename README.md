@@ -92,8 +92,13 @@ single record or relation.
 
 For example:
 
-`ExampleMessage.send_to User.first`
-`ExampleMessage.send_to User.where(beta: true)`
+```ruby
+ExampleMessage.send_to User.first
+
+# or
+
+ExampleMessage.send_to User.where(beta: true)
+```
 
 ## Push Console
 
