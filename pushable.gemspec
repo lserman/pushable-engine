@@ -9,21 +9,21 @@ Gem::Specification.new do |s|
   s.version     = Pushable::VERSION
   s.authors     = ['Logan Serman']
   s.email       = ['logan.serman@metova.com']
-  s.homepage    = 'TODO'
-  s.summary     = 'TODO: Summary of Pushable.'
-  s.description = 'TODO: Description of Pushable.'
+  s.homepage    = 'https://github.com/lserman/pushable-engine'
+  s.summary     = 'Rails engine to manage device tokens and push messaging.'
+  s.description = s.summary
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
 
   s.add_dependency 'rails', '~> 4'
   s.add_dependency 'responders', '~> 2.0'
-  s.add_dependency 'mercurius', '>= 0.0.8'
+  s.add_dependency 'mercurius', '~> 0.0'
 
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'capybara'
-  s.add_development_dependency 'capybara-webkit'
-  s.add_development_dependency 'launchy'
+  s.add_development_dependency 'sqlite3', '~> 0'
+  s.add_development_dependency 'rspec-rails', '~> 0'
+  s.add_development_dependency 'capybara', '~> 0'
+  s.add_development_dependency 'capybara-webkit', '~> 0'
+  s.add_development_dependency 'launchy', '~> 0'
 
 end
