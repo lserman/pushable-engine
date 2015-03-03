@@ -110,7 +110,7 @@ class ExampleMessage < Pushable::Message
   end
 end
 
-Pushable::Console << Pushable::Stub(ExampleMessage, bar: :string, baz: :integer)
+Pushable::Console << Pushable::Stub.new(ExampleMessage, bar: :string, baz: :integer)
 ```
 
 This will add `ExampleMessage` to the console with fields for `bar` and `baz`:
