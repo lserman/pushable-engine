@@ -1,6 +1,6 @@
 # Pushable
 
-This project maintains a model `Pushable::Device` and facilitates the delivery of push notifications for iOS and Android.
+This project maintains a `Pushable::Device` model and facilitates the delivery of push notifications for iOS and Android.
 
 ## Installation
 
@@ -78,8 +78,8 @@ end
 
 Will generate the following structures:
 
-iOS: `{ alert: 'This is an example', badge: 1, sound: 'default', other: { foo: :bar } }`
-Android: `{ alert: 'This is an example', data: { foo: :bar } }`
+- iOS: `{ alert: 'This is an example', badge: 1, sound: 'default', other: { foo: :bar } }`
+- Android: `{ alert: 'This is an example', data: { foo: :bar } }`
 
 `Pushable::Message` does not define a constructor so you can construct your message however you want.
 
