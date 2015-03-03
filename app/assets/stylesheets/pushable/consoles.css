@@ -1,0 +1,16 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+form.console {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group[data-klass] input {
+  margin-bottom: 10px;
+}

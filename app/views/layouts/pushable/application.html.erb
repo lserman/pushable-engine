@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pushable</title>
+  <%= stylesheet_link_tag    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" %>
+  <%= stylesheet_link_tag    "pushable/application", media: "all" %>
+  <%= javascript_include_tag "//code.jquery.com/jquery-2.1.3.min.js" %>
+  <%= javascript_include_tag "pushable/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

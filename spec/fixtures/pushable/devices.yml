@@ -1,0 +1,9 @@
+logan:
+  token: 'logan123'
+  platform: 'android'
+  pushable: logan (User)
+
+john:
+  token: 'john123'
+  platform: 'android'
+  pushable: john (User)
