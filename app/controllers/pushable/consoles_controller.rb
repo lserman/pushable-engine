@@ -2,6 +2,14 @@ module Pushable
   class ConsolesController < ::ActionController::Base
     layout 'pushable/application'
 
+    class ::ExampleMessage < Pushable::Message
+      def other
+        { foo: bar, bar: baz }
+      end
+    end
+
+    Pushable::Console << Pushable::Stub.new(ExampleMessage, bar: :string, baz: :integer)
+
     def show
       @push = Pushable::ConsolePush.new
       @stubs = Pushable::Console.stubs
