@@ -110,10 +110,16 @@ class ExampleMessage < Pushable::Message
   end
 end
 
-Pushable::Console << Pushable::Stub(ExampleMessage, bar: :string, baz: :integer)
+Pushable::Console << Pushable::Stub.new(ExampleMessage, bar: :string, baz: :integer)
 ```
 
+<<<<<<< HEAD
 This will add `ExampleMessage` to the console with fields for `bar` and `baz`.
+=======
+This will add `ExampleMessage` to the console with fields for `bar` and `baz`:
+
+![alt tag](https://raw.githubusercontent.com/lserman/pushable-engine/master/spec/console.png)
+>>>>>>> origin/master
 
 ## Mercurius
 
