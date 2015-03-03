@@ -94,9 +94,7 @@ For example:
 
 ```ruby
 ExampleMessage.send_to User.first
-
 # or
-
 ExampleMessage.send_to User.where(beta: true)
 ```
 
