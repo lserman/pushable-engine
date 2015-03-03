@@ -101,7 +101,19 @@ ExampleMessage.send_to User.where(beta: true)
 ## Push Console
 
 Mounting `Pushable::Engine` gives you access to a test push console which makes it easier for the iOS/Android team to test their integration with Pushable.
-You can
+To add messages to the console, generate a `Pushable::Stub` and add it to `Pushable::Console`:
+
+```ruby
+class ExampleMessage < Pushable::Message
+  def other
+    { foo: bar, bar: baz }
+  end
+end
+
+Pushable::Console << Pushable::Stub(ExampleMessage, bar: :string, baz: :integer)
+```
+
+This will add `ExampleMessage` to the console with fields for `bar` and `baz`
 
 ## Mercurius
 
