@@ -93,9 +93,9 @@ single record or relation.
 For example:
 
 ```ruby
-ExampleMessage.send_to User.first
+ExampleMessage.new(...).send_to User.first
 # or
-ExampleMessage.send_to User.where(beta: true)
+ExampleMessage.new(...).send_to User.where(beta: true)
 ```
 
 ## Push Console
@@ -113,13 +113,9 @@ end
 Pushable::Console << Pushable::Stub.new(ExampleMessage, bar: :string, baz: :integer)
 ```
 
-<<<<<<< HEAD
-This will add `ExampleMessage` to the console with fields for `bar` and `baz`.
-=======
 This will add `ExampleMessage` to the console with fields for `bar` and `baz`:
 
 ![alt tag](https://raw.githubusercontent.com/lserman/pushable-engine/master/spec/console.png)
->>>>>>> origin/master
 
 ## Mercurius
 
