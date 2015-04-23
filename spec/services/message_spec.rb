@@ -31,6 +31,7 @@ describe 'Messaging' do
       delivery = Mercurius::Testing::Base.deliveries[0]
       expect(delivery.notification.alert).to eq 'This is an alert'
       expect(delivery.notification.other).to eq Hash['data' => 123]
+      expect(delivery.notification.payload.keys).to_not include 'content-available'
       expect(delivery.device_tokens[0]).to eq 'logan123'
     end
 
@@ -47,6 +48,14 @@ describe 'Messaging' do
       expect(delivery.device_tokens.size).to eq 2
       expect(delivery.device_tokens[0]).to eq 'logan123'
       expect(delivery.device_tokens[1]).to eq 'john123'
+    end
+
+    it 'sends the message via APNS with content-available set to 1' do
+      message = TestMessage.new
+      allow(message).to receive(:content_available?) { true }
+      message.send_to user
+      delivery = Mercurius::Testing::Base.deliveries[0]
+      expect(delivery.notification.payload['content-available']).to eq 1
     end
   end
 

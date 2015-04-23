@@ -83,6 +83,20 @@ Will generate the following structures:
 
 `Pushable::Message` does not define a constructor so you can construct your message however you want.
 
+## iOS Content available
+
+To send `content-available: 1` with the push, override `content_available?` in your message to return a truthy value:
+
+```ruby
+class ExampleMessage < Pushable::Message
+  # ...
+
+  def content_available?
+    true
+  end
+end
+```
+
 ## Sending messages
 
 Pushable relies on ActiveJob to enqueue messages. Ensure your application is properly setup with ActiveJob!
