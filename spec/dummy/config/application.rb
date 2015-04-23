@@ -9,7 +9,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "pushable"
+require "pushable-engine"
 
 module Dummy
   class Application < Rails::Application

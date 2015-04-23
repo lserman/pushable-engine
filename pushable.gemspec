@@ -21,10 +21,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'responders', '~> 2.0'
   s.add_dependency 'mercurius', '~> 0.0'
 
-  s.add_development_dependency 'sqlite3', '~> 0'
-  s.add_development_dependency 'rspec-rails', '~> 0'
-  s.add_development_dependency 'capybara', '~> 0'
-  s.add_development_dependency 'capybara-webkit', '~> 0'
-  s.add_development_dependency 'launchy', '~> 0'
+  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'capybara-webkit'
+  s.add_development_dependency 'launchy'
 
 end
