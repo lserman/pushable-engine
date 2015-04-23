@@ -112,6 +112,16 @@ ExampleMessage.new(...).send_to User.first
 ExampleMessage.new(...).send_to User.where(beta: true)
 ```
 
+## Sending a test push
+
+Pushable comes with a built-in message to use to test your configuration out:
+
+```ruby
+Pushable::TestMessage.new.send_to user
+```
+
+Will send "This is a test push from Pushable" to the device.
+
 ## Push Console
 
 Mounting `Pushable::Engine` gives you access to a test push console which makes it easier for the iOS/Android team to test their integration with Pushable.
