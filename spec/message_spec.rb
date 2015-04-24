@@ -57,6 +57,14 @@ describe 'Messaging' do
       delivery = Mercurius::Testing::Base.deliveries[0]
       expect(delivery.notification.payload['content-available']).to eq 1
     end
+    
+    it 'sends the message via APNS with no badge' do
+      message = TestMessage.new
+      allow(message).to receive(:badge?) { false }
+      message.send_to user
+      delivery = Mercurius::Testing::Base.deliveries[0]
+      expect(delivery.notification.payload.keys.index('badge')).to eq nil
+    end
   end
 
   context 'Both' do

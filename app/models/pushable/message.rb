@@ -39,6 +39,10 @@ module Pushable
     def content_available?
       false
     end
+    
+    def badge?
+      true
+    end
 
     private
 
@@ -46,6 +50,7 @@ module Pushable
         if platform == :ios
           hash = { alert: alert, badge: badge, sound: sound, other: other }
           hash.merge!(content_available: 1) if content_available?
+          hash.delete(:badge) unless badge?
           hash
         elsif platform == :android
           { alert: alert }.merge(data: other)

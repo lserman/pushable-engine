@@ -97,6 +97,18 @@ class ExampleMessage < Pushable::Message
 end
 ```
 
+## iOS without badge
+The default iOS message contains 'badge: 1'. To remove the badge, override 'badge?' with false:
+
+```ruby
+class ExampleMessage < Pushable::Message
+  # ...
+
+  def badge?
+    false
+  end
+end
+
 ## Sending messages
 
 Pushable relies on ActiveJob to enqueue messages. Ensure your application is properly setup with ActiveJob!
