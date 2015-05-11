@@ -7,7 +7,7 @@ This project maintains a `Pushable::Device` model and facilitates the delivery o
 ```
 gem 'pushable-engine'
 bundle
-bin/rails g pushable:install:migrations
+bin/rake railties:install:migrations
 bin/rake db:migrate
 ```
 
