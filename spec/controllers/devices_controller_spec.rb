@@ -8,12 +8,6 @@ describe DevicesController do
     expect(user.devices[0].platform).to eq 'android'
   end
 
-  it 'doesnt create a device without android or ios as platform' do
-    post :create, device: { token: 'token123', platform: 'test' }
-    expect(user.reload.devices.size).to eq 0
-    expect(assigns(:device).errors[:platform]).to be_present
-  end
-
   it 'doesnt create a device without a token' do
     post :create, device: { token: '', platform: 'android' }
     expect(user.reload.devices.size).to eq 0

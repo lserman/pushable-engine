@@ -3,20 +3,8 @@ module Pushable
     MAX_TOKENS_AT_ONCE = 999
 
     def send_to(pushable)
-      if pushable.is_a? ActiveRecord::Relation
-        enqueue Device.android.owned_by(pushable), format(:android)
-        enqueue Device.ios.owned_by(pushable), format(:ios)
-      elsif pushable.is_a?(ActiveRecord::Base)
-        enqueue pushable.devices.android, format(:android)
-        enqueue pushable.devices.ios, format(:ios)
-      else
-        raise ArgumentError.new('#send_to only accepts an ActiveRecord Relation or ActiveRecord object!')
-      end
-    end
-
-    def enqueue(devices, payload)
-      devices.pluck(:id).each_slice(MAX_TOKENS_AT_ONCE) do |tokens|
-        Pushable::Messenger.perform_later tokens, payload.deep_stringify_keys
+      each_slice_of_device_tokens_in(pushable.devices) do |tokens|
+         Pushable::Messenger.perform_later tokens, to_h.deep_stringify_keys
       end
     end
 
@@ -32,25 +20,31 @@ module Pushable
       'default'
     end
 
-    def other
+    def data
       {}
     end
 
     def content_available?
-      false
+      nil
+    end
+
+    def to_h
+      {
+        data: data,
+        notification: {
+          body: alert,
+          sound: sound,
+          badge: badge.to_s
+        },
+        content_available: content_available?,
+      }
     end
 
     private
-
-      def format(platform)
-        if platform == :ios
-          hash = { alert: alert, badge: badge, sound: sound, other: other }
-          hash.merge!(content_available: 1) if content_available?
-          hash
-        elsif platform == :android
-          { alert: alert }.merge(data: other)
+      def each_slice_of_device_tokens_in(devices)
+        devices.pluck(:id).each_slice MAX_TOKENS_AT_ONCE do |tokens|
+          yield tokens
         end
       end
-
   end
 end

@@ -12,7 +12,7 @@ class TestMessage < Pushable::Message
     'test'
   end
 
-  def other
+  def data
     { data: 123 }
   end
 
